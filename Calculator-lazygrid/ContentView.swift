@@ -12,17 +12,36 @@ enum CalculatorButtonType {
     case computeButton
     case number
     case doubleWide
+    
+    var foregroundColor: Color {
+        self == .utility ? .black : .white
+        
+    }
+    
+    var backgroundColor: Color {
+        switch self {
+            case .utility:
+                .utilityBackground
+        case .computeButton:
+                .computeBackground
+        case .number, .doubleWide:
+                .numberBackground
+        }
+    }
 }
+
+//why do I need this typealias?
 typealias ButtonSpec = (label: String, type: CalculatorButtonType)
 
 let buttonSpecs: [ButtonSpec] = [
     ("AC", .utility),   ("±", .utility),    ("%", .utility),    ("/", .computeButton),
-    ("7", .utility),    ("8", .utility),    ("9", .utility),    ("+", .computeButton),
-    ("4", .utility),    ("5", .utility),    ("6", .utility),    ("-", .computeButton),
-    ("1", .utility),    ("2", .utility),    ("3", .utility),    ("*", .computeButton),
-    ("0", .utility),    ("", .utility),    (".", .utility),    ("=", .computeButton)
+    ("7", .number),    ("8", .number),    ("9", .number),    ("+", .computeButton),
+    ("4", .number),    ("5", .number),    ("6", .number),    ("-", .computeButton),
+    ("1", .number),    ("2", .number),    ("3", .number),    ("*", .computeButton),
+    ("0", .number),    ("", .utility),    (".", .utility),    ("=", .computeButton)
 ]
 
+//Why do I need this variable?
 let gridItems = Array<GridItem>(repeating: .init(.fixed(50)), count: 4)
 
 struct CalculatorView: View {

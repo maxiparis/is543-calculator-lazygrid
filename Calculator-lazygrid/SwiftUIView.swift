@@ -15,10 +15,10 @@ struct CalculatorButton: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(.blue)
+                    .fill(buttonSpec.type.backgroundColor)
                 Text(buttonSpec.label)
                     .font(.title)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(buttonSpec.type.foregroundColor)
             }
         }
     }
