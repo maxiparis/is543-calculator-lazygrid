@@ -11,7 +11,7 @@ import SwiftUI
 struct Calculator_lazygridApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CalculatorView()
         }
     }
 }
